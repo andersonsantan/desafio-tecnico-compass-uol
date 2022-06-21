@@ -23,12 +23,14 @@ public class CityRegistrationDatabase implements CityRegistrationGateway {
     }
 
     @Override
-    public void execute(City city)  {
+    public City execute(City city)  {
         List<City> cities = getCityesByNameGateway.execute(city.getName());
         if (cities.contains(city)) {
             log.error("City already registered");
             throw new RuntimeException("City already registered");
         }
-        cityRepository.save(CityDatabase.translateToModel(city));
+        return cityRepository
+                .save(CityDatabase.translateToModel(city))
+                .translateToDomain();
     }
 }

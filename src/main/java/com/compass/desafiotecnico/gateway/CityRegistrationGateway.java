@@ -4,5 +4,5 @@ import com.compass.desafiotecnico.domain.city.City;
 
 public interface CityRegistrationGateway {
 
-    void execute(City city);
+    City execute(City city);
 }
