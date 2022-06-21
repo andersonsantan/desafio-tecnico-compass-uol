@@ -48,10 +48,10 @@ public class ExceptionHandlingController {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ServiceException.class)
-    public GenericErrorResponse handleUseCaseException(final ServiceException e) {
-        LOGGER.error("Service error");
+    public GenericErrorResponse handleUseCaseException(final ServiceException exception) {
+        LOGGER.error(exception.getMessage());
         return GenericErrorResponse.builder()
-                .message(e.getCause().getMessage())
+                .message(exception.getCause().getMessage())
                 .build();
     }
 
