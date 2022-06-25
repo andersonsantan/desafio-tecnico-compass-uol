@@ -1,24 +1,20 @@
-package com.compass.desafiotecnico.api.request;
+package com.compass.desafiotecnico.api.response;
 
 import com.compass.desafiotecnico.domain.city.City;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class CityRequest {
-    @NotBlank
+public class CityResponse {
+    private Long id;
     private String name;
-
-    @NotBlank
     private String state;
 
-    public City translateToDomain() {
-        return new City(name, state);
+    public static CityResponse translateToResponse(City city){
+        return new CityResponse(city.getId(),city.getName(), city.getState());
     }
 
 }

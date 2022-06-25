@@ -16,9 +16,9 @@ public class CityRegistrationService {
         this.cityRegistrationGateway = cityRegistrationGateway;
     }
 
-    public void execute(City city) {
+    public City execute(City city) {
         try {
-            cityRegistrationGateway.execute(city);
+          return cityRegistrationGateway.execute(city);
         } catch (RuntimeException e) {
             throw new ServiceException("Unable to register", e);
         }

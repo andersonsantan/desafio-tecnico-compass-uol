@@ -15,16 +15,16 @@ import java.util.List;
 @Component
 public class CityRegistrationDatabase implements CityRegistrationGateway {
     private CityRepository cityRepository;
-    private GetCitiesByNameGateway getCityesByNameGateway;
+    private GetCitiesByNameGateway getCitiesByNameGateway;
 
-    public CityRegistrationDatabase(CityRepository cityRepository, GetCitiesByNameGateway getCityesByNameGateway) {
+    public CityRegistrationDatabase(CityRepository cityRepository, GetCitiesByNameGateway getCitiesByNameGateway) {
         this.cityRepository = cityRepository;
-        this.getCityesByNameGateway = getCityesByNameGateway;
+        this.getCitiesByNameGateway = getCitiesByNameGateway;
     }
 
     @Override
     public City execute(City city)  {
-        List<City> cities = getCityesByNameGateway.execute(city.getName());
+        List<City> cities = getCitiesByNameGateway.execute(city.getName());
         if (cities.contains(city)) {
             log.error("City already registered");
             throw new RuntimeException("City already registered");
@@ -33,4 +33,5 @@ public class CityRegistrationDatabase implements CityRegistrationGateway {
                 .save(CityDatabase.translateToModel(city))
                 .translateToDomain();
     }
+
 }

@@ -4,8 +4,15 @@ package com.compass.desafiotecnico.domain.city;
 import java.util.Objects;
 
 public class City {
+    private Long id;
     private String name;
     private String state;
+
+    public City(Long id, String name, String state) {
+        this.id = id;
+        this.name = name;
+        this.state = state;
+    }
 
     public City(String name, String state) {
         this.name = name;
@@ -23,6 +30,10 @@ public class City {
     @Override
     public int hashCode() {
         return Objects.hash(name, state);
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {

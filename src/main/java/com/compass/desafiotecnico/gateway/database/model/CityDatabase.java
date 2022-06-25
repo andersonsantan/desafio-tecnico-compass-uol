@@ -2,6 +2,7 @@ package com.compass.desafiotecnico.gateway.database.model;
 
 import com.compass.desafiotecnico.domain.city.City;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @Entity
 public class CityDatabase {
     @Id
@@ -32,6 +34,6 @@ public class CityDatabase {
 
 
     public City translateToDomain(){
-        return new City(name, state);
+        return new City(id, name, state);
     }
 }
