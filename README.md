@@ -32,5 +32,7 @@ implementação eu mantive o modelo de dados o mais desacoplado possível,
 para isso tive que ir tomando algumas decisões de modelagem que podem
 não estar de acordo com o critério pessoal de alguns desenvolvedores.
 
+by Anderson Oliveira Santana
+
 
 
